@@ -1,0 +1,254 @@
+appConfig:
+  theme: nord
+  layout: horizontal
+  iconSize: small
+  language: en
+  auth:
+    users:
+      - user: *******
+        hash: *******
+        type: admin
+      - user: *******
+        hash: *******
+        type: normal
+    enableGuestAccess: false
+    enableKeycloak: false
+  startingView: default
+  defaultOpeningMethod: newtab
+  statusCheck: false
+  statusCheckInterval: 0
+  faviconApi: allesedv
+  routingMode: history
+  enableMultiTasking: false
+  widgetsAlwaysUseProxy: false
+  webSearch:
+    disableWebSearch: false
+    searchEngine: google
+    openingMethod: newtab
+    searchBangs: {}
+  enableFontAwesome: true
+  enableMaterialDesignIcons: false
+  hideComponents:
+    hideHeading: false
+    hideNav: true
+    hideSearch: true
+    hideSettings: false
+    hideFooter: false
+  showSplashScreen: false
+  preventWriteToDisk: false
+  preventLocalSave: false
+  disableConfiguration: false
+  disableConfigurationForNonAdmin: false
+  allowConfigEdit: true
+  enableServiceWorker: false
+  disableContextMenu: false
+  disableUpdateChecks: false
+  disableSmartSort: false
+  enableErrorReporting: false
+pageInfo:
+  title: Arasaka Mainframe
+  description: ''
+  navLinks: []
+  footerText: Fear isn't a weakness. It's there to protect you.
+  logo: ''
+sections:
+  - name: Support
+    icon: fas fa-rocket
+    items:
+      - title: Proxmox VE Helper
+        description: Proxmox LXC installation scripts
+        icon: generative
+        url: https://tteck.github.io/Proxmox/
+        target: newtab
+        id: 0_765_proxmoxvehelper
+      - title: Self Hosted
+        description: List of awesome selfhosted applications
+        icon: generative
+        url: https://github.com/awesome-selfhosted/awesome-selfhosted
+        target: newtab
+        id: 1_765_selfhosted
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+  - name: Controls
+    icon: fas fa-server
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Proxmox
+        description: Virtualization server dashboard
+        icon: proxmox.svg
+        url: https://*******:8006/
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: 'https://*******:8006/#v1:0:18:4:::::::'
+        statusCheckAllowInsecure: true
+        id: 0_852_proxmox
+      - title: Pi-Hole
+        description: Home DNS server
+        icon: pi-hole_alt.svg
+        url: http://*******/admin/index.php
+        target: newtab
+        statusCheck: true
+        id: 1_852_pihole
+      - title: File Sharing
+        description: cockpit
+        icon: cockpit.svg
+        url: https://*******:9090/
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 2_852_filesharing
+      - title: Home Assist
+        description: Local Home Assistant server
+        icon: home-assistant.svg
+        url: http://*******:8123
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 3_852_homeassist
+      - title: HS Portainer
+        description: Portainer running in Home Assistant
+        icon: portainer.svg
+        url: http://*******:9000/
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 4_852_hsportainer
+  - name: Media
+    icon: fas fa-video
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Plex
+        description: Home Media Center
+        icon: plex.svg
+        url: http://*******:32400/web/index.html
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: http://*******:32400/identity
+        statusCheckAllowInsecure: true
+        id: 0_480_plex
+      - title: Jellyfin
+        description: Private Media Center
+        icon: jellyfin.svg
+        url: http://*******:8096/web/index.html#!/home.html
+        displayData: hideForGuests
+        target: newtab
+        statusCheck: true
+        id: 1_480_jellyfin
+      - title: Radarr
+        description: Movie management service
+        icon: radarr.svg
+        url: http://*******:7878/
+        target: newtab
+        statusCheck: true
+        id: 2_480_radarr
+      - title: Sonarr
+        description: TV shows management service
+        icon: sonarr.svg
+        url: http://*******:7878/
+        target: newtab
+        statusCheck: true
+        id: 3_480_sonarr
+      - title: Photoprism
+        description: Photos management service
+        icon: photoprism.svg
+        url: http://*******:2342/library/browse
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 4_480_photoprism
+      - title: Tautulli
+        description: Plex statistics
+        icon: tautulli.svg
+        url: http://*******:8181/home
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 5_480_tautulli
+  - name: Misc
+    icon: fas fa-bars
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Transmission
+        description: Torrent download client
+        icon: transmission.svg
+        url: http://*******:9091/transmission
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 0_396_transmission
+      - title: Jackett
+        description: Torrent indexer
+        icon: jackett.svg
+        url: http://*******:9117/UI/Dashboard
+        target: newtab
+        statusCheck: true
+        statusCheckAllowInsecure: true
+        id: 1_396_jackett
+  - name: Proxmox Health
+    widgets:
+      - type: gl-current-cpu
+        options:
+          hostname: http://*******:61208
+          username: *******
+          password: *******
+          useProxy: true
+        id: 0_1395_glcurrentcpu
+      - type: gl-current-mem
+        options:
+          hostname: http://*******:61208
+          username: *******
+          password: *******
+          useProxy: true
+        id: 1_1395_glcurrentmem
+      - type: gl-disk-space
+        options:
+          hostname: http://*******:61208
+          username: *******
+          password: *******
+          useProxy: true
+        id: 2_1395_gldiskspace
+      - type: gl-network-traffic
+        options:
+          hostname: http://*******:61208
+          username: *******
+          password: *******
+          useProxy: true
+        id: 3_1395_glnetworktraffic
+      - type: pi-hole-stats
+        options:
+          hostname: http://*******/
+          apiKey: *******
+          useProxy: true
+        id: 4_1395_piholestats
+      - type: gl-cpu-temp
+        options:
+          hostname: http://*******:61208
+          username: *******
+          password: *******
+          useProxy: true
+        id: 5_1395_glcputemp
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
